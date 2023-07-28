@@ -9,7 +9,7 @@ public class Savings extends User implements IsProfitable, IsDepositable {
         this.interest = interest;
     }
 
-    public Savings create(String name, double deposit, double interest) {
+    static User create(String name, double deposit, double interest) {
         return new Savings(name, deposit, interest);
     }
 

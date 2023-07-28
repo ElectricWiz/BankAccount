@@ -1,5 +1,5 @@
 public class Investment extends User implements IsDepositable,
-        IsProfitable, IsConstructable {
+        IsProfitable {
     private Investment(String name, double deposit) {
         super(name, deposit);
     }
@@ -12,7 +12,7 @@ public class Investment extends User implements IsDepositable,
         this.total += this.total*interest*ticks;
     }
 
-    public User create(String name, double deposit) {
+    static User create(String name, double deposit) {
         System.out.println("Creando nueva cuenta de inversion");
 
         return new Investment(name, deposit);

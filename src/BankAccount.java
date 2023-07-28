@@ -4,6 +4,12 @@ public class BankAccount extends User implements IsDepositable, IsWithdrawable {
         super(name, deposit);
     }
 
+    static User create(String name, double deposit) {
+        System.out.println("Creando cuenta standard");
+
+        return new BankAccount(name, deposit);
+    }
+
     @Override
     public void deposit(double deposit) {
         this.total += deposit;
