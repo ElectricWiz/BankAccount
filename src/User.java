@@ -1,14 +1,12 @@
-import Interfaces.*;
-
-public class User implements IsConstructable {
-    public int id = 0;
-    private String name;
+public class User {
+    static int id = 0;
+    private final String name;
     public double total;
-    private boolean inDebt;
 
-    @Override
-     public void create() {
+    public User(String name, double deposit) {
         id++;
-        System.out.println("Creado Usuario # " + id);
+
+        this.name = name;
+        this.total = deposit;
     }
 }
