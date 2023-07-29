@@ -1,28 +1,28 @@
-public class BankAccount implements User, IsDepositable, IsWithdrawable {
+public class BankAccount implements User {
 
     static int id = 0;
     private final String name;
     public double total;
 
 
-    private BankAccount(String name, double deposit) {
+    public BankAccount(String name, double deposit) {
+        id++;
+
         this.name = name;
         this.total = deposit;
     }
 
-    static User create(String name, double deposit) {
-        System.out.println("Creando cuenta standard");
-
-        return new BankAccount(name, deposit);
-    }
-
     public String showTotal() {
-        return "El total de la cuenta es" + this.total;
+        return "El total de la cuenta es: " + this.total;
     }
 
     @Override
     public String getName() {
         return name;
+    }
+
+    public static int getId() {
+        return id;
     }
 
     @Override

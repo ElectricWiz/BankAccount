@@ -1,22 +1,39 @@
-public class Investment extends User implements IsDepositable,
-        IsProfitable {
-    private Investment(String name, double deposit) {
-        super(name, deposit);
+public class Investment implements User {
+
+    static int id = 0;
+    static int ticks;
+    private final String name;
+    public double total;
+
+    public Investment(String name, double deposit) {
+        id++;
+
+        this.name = name;
+        this.total = deposit;
     }
 
     public void deposit(double deposit) {
         this.total += deposit;
     }
 
-    public void profit(double interest, int ticks) {
-        this.total += this.total*interest*ticks;
+    private double profit(double interest, int ticks) {
+        return this.total*interest*ticks;
     }
 
-    static User create(String name, double deposit) {
-        System.out.println("Creando nueva cuenta de inversion");
-
-        return new Investment(name, deposit);
+    public String showTotal() {
+        return "El total sera: " + this.total + profit(0.05, ticks);
     }
 
+    public void withdraw(double unDeposit) {
+        this.total -= unDeposit;
+    }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public static int getId() {
+        return id;
+    }
 }

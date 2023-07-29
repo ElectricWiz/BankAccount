@@ -1,25 +1,18 @@
 final class UserFactory {
-    private UserFactory() {};
+    public UserFactory() {};
 
     static User construct(String type, String name, double deposit) {
-        User newUser;
-
         switch(type) {
             case "standard":
-                newUser = BankAccount.create(name, deposit);
-                break;
+                return new BankAccount(name, deposit);
             case "savings":
-                newUser = Savings.create(name, deposit, 0.05);
-                break;
+                return new Savings(name, deposit, 0.05);
             case "investment":
-                newUser = Investment.create(name, deposit);
-                break;
+                return new Investment(name, deposit);
             default:
                 System.out.println("das wort ist nicht richtig");
                 System.out.println("wir haben ein default konto fuer dich gemacht");
-                newUser = BankAccount.create("Heinz", 0.01);
+                return new BankAccount("Heinz", 0.01);
         }
-
-        return newUser;
     }
 }

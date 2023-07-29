@@ -1,4 +1,4 @@
-public class Savings implements User, IsProfitable, IsDepositable {
+public class Savings implements User {
 
     static int id = 0;
     private final String name;
@@ -9,18 +9,13 @@ public class Savings implements User, IsProfitable, IsDepositable {
 
     double profit;
 
-    private Savings(String name, double deposit, double interest) {
+    public Savings(String name, double deposit, double interest) {
+        id++;
+
         this.name = name;
         this.initial = deposit;
         this.total =  this.initial;
         this.interest = interest;
-    }
-
-    static User create(String name, double deposit, double interest) {
-        id++;
-        System.out.println("Creando cuenta de ahorro");
-
-        return new Savings(name, deposit, interest);
     }
 
     public void profit(double interest, int ticks) {
@@ -44,7 +39,11 @@ public class Savings implements User, IsProfitable, IsDepositable {
         return "Las ganancias brutas han sido: " + profit;
     }
 
-    public String showROI() {
-        return "Tu %ROI total es: " + this.profit/this.initial;
+    public static int getId() {
+        return id;
+    }
+
+    public void withdraw(double unDeposit) {
+        System.out.println("This type of account does not support this");
     }
 }
