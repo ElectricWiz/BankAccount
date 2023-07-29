@@ -1,6 +1,5 @@
 public interface User {
-    private final String name;
-    public double total;
+    public String showTotal();
+    public String getName();
 
-    public String;
 }
