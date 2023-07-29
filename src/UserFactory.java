@@ -2,7 +2,7 @@ final class UserFactory {
     private UserFactory() {};
 
     static User construct(String type, String name, double deposit) {
-        User newUser = new User(" ", 0.0);
+        User newUser;
 
         switch(type) {
             case "standard":
@@ -16,6 +16,8 @@ final class UserFactory {
                 break;
             default:
                 System.out.println("das wort ist nicht richtig");
+                System.out.println("wir haben ein default konto fuer dich gemacht");
+                newUser = BankAccount.create("Heinz", 0.01);
         }
 
         return newUser;
