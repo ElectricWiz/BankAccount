@@ -1,4 +1,16 @@
-public class BankAccount extends User implements IsDepositable, IsWithdrawable {
+public class BankAccount implements User, IsDepositable, IsWithdrawable {
+
+    static int id = 0;
+    private final String name = "";
+    public double total;
+
+
+    public User(String name, double deposit) {
+        id++;
+
+        this.name = name;
+        this.total = deposit;
+    }
 
     private BankAccount(String name, double deposit) {
         super(name, deposit);

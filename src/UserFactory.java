@@ -1,7 +1,7 @@
 final class UserFactory {
     private UserFactory() {};
 
-    static User construct(String type, String name, int deposit) {
+    static User construct(String type, String name, double deposit) {
         User newUser = new User(" ", 0.0);
 
         switch(type) {
